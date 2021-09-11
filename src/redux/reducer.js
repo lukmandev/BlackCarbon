@@ -10,6 +10,8 @@ import userPage from './reducers/pages/user';
 import editProfilePage from './reducers/pages/edit-profile';
 import editUserInfoModal from './reducers/editUserInfoModal';
 import uploadImageModal from './reducers/uploadImageModal';
+import editUserBgModal from './reducers/editUserBgModal';
+
 
 
 
@@ -26,7 +28,8 @@ const store = configureStore({
         userPage,
         editProfilePage,
         editUserInfoModal,
-        uploadImageModal
+        uploadImageModal,
+        editUserBgModal
 	},
 });
 

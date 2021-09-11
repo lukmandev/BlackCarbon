@@ -14,6 +14,9 @@ import EditUserInfoModal from '../../modals/editUserInfo';
 import UploadImageModal from '../../modals/uploadImage';
 import UserImage from './userImage';
 import UserInfo from './userInfo';
+import UserBg from "../userBg";
+import UserBgModal from '../../modals/editUserBg';
+import ChangeBgButton from './changeBgButton';
 
 
 const EditForm = () => {
@@ -80,8 +83,9 @@ const EditForm = () => {
 				<EditDescriptionModal />
 				<EditUserInfoModal />
 				<UploadImageModal />
-				<img src="assets/images/user-bg.jpg" alt=""
-					 className="user-bg object-cover absolute left-0 top-0 w-full"/>
+				<UserBgModal />
+				<UserBg userBg={state.auth.profile.user_bg} />
+				<ChangeBgButton />
 				<div className="wrapper">
 					<div className="profile-holder">
 						<div className="profile__top items-center justify-center relative">
@@ -147,12 +151,6 @@ const EditForm = () => {
 	}
 }
 
-// <div className="form__item grid items-center">
-// 	<div className="icon__preview flex items-center">
-// 		<i className="fab fa-whatsapp text-white" />
-// 	</div>
-{/*	<input className="form__item-input text-white" placeholder="Enter your Whatsapp phone" />*/}
-{/*</div>*/}
 
 
 export default EditForm;

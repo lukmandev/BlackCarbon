@@ -14,6 +14,10 @@ import {
     setLoading as setImageUpLoading,
     setMessage as setImageUpMessage
 } from '../redux/reducers/uploadImageModal';
+import {
+    setLoading as setUserBgModalLoading,
+    setMessage as setUserBgModalMessage
+} from '../redux/reducers/editUserBgModal';
 
 
 const contentType = 'multipart/form-data';
@@ -145,11 +149,39 @@ const EditProfileService = () => {
             dispatch(setImageUpLoading(false));   
         }
     }
+    const changeUserBg = async (info) => {
+        const { auth } = state;
+        const result = {
+            message: ""
+        }
+        const formData = new FormData();
+        formData.append('key', auth.key);
+        for(let i in info){
+            formData.append(i, info[i]);
+        }
+        dispatch(setUserBgModalLoading(true));
+        try {
+            const { data } = await api({
+                url: `/users/${auth.id}/`,
+                method: 'patch',
+                headers: { "Content-Type": contentType},
+                data: formData,
+            });
+            dispatch(setProfile(data));
+            result.message = "Успешно изменено";
+        } catch (e) {
+            result.message = 'Произошла какая то ошибка';
+        } finally {
+            dispatch(setUserBgModalMessage(result.message));
+            dispatch(setUserBgModalLoading(false));
+        }
+    }
     return {
         changeProfile,
         changeDescription,
         changeUserInfo,
-        changeUserAvatar
+        changeUserAvatar,
+        changeUserBg
     }
 }
 

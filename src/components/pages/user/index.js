@@ -13,6 +13,7 @@ import OutInfo from "./outInfo";
 import UserInfo from "./userInfo";
 import UserDescription from "./userDescription";
 import UserSocials from "./userSocials";
+import UserBg from '../userBg';
 
 
 const UserPageWrapper = () => {
@@ -47,6 +48,7 @@ const UserPageWrapper = () => {
 				<>
 					<div className="profile w-full">
 						<img src="assets/images/user-bg.jpg" alt="" className="user-bg object-cover absolute left-0 top-0 w-full" />
+						<UserBg userBg={state.user.user_bg} />
 						<div className="wrapper">
 							<div className="profile-holder">
 								<UserInfo />
