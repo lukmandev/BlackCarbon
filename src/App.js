@@ -7,7 +7,7 @@ import {useEffect} from "react";
 import {useSelector} from "react-redux";
 
 
-
+// 'NEW'
 const App = () => {
     const state = useSelector(({auth}) => auth);
     const history = useHistory();
