@@ -59,9 +59,6 @@ const UserPageWrapper = () => {
                                           <span onClick={openModal} className="font-light cursor-pointer profile__bottom-text flex justify-center">
                                             Its your account?
                                           </span>
-										<button className="user-connect-btn flex justify-center items-center w-full text-white">
-											Connect
-										</button>
 									</div>
 								</div>
 							</div>
